@@ -90,12 +90,12 @@ func main() {
 		case msg := <-msgs:
 			//TODO Deal with a new message
 			// Send the message to all clients that aren't the sender
-
 			for i, client := range clients {
 				if msg.sender != i {
 					fmt.Fprintf(client, msg.message)
 				}
 			}
+			fmt.Println(msg.message)
 		}
 	}
 }
